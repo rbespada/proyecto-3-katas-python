@@ -163,6 +163,53 @@ def pedir_edad():
         print(f"Edad aceptada: {edad}")
 
 
+#----------------------------------------------------
+
+# 12. Genera una función que, al recibir una frase,
+# devuelva una lista con la longitud de cada palabra usando map().
+
+def longitudes_palabras(frase: str) -> list:
+    palabras = frase.split()
+    return list(map(len, palabras))
+
+
+#----------------------------------------------------------
+
+# 13. Devuelve una lista de tuplas (MAYUS, minus) sin letras repetidas usando map().
+def mayus_minus_sin_repetir(caracteres: str) -> list:
+    letras_unicas = sorted(set(caracteres))
+    return list(map(lambda c: (c.upper(), c.lower()), letras_unicas))
+
+
+#----------------------------------------------------------
+
+# 14, Retorna palabras que empiezan por una letra usando filter().
+
+def palabras_empiezan_por(palabras: list, letra: str) -> list:
+    return list(filter(lambda p: p.startswith(letra), palabras))
+
+
+#--------------------------------------------------------
+
+# 15. Lambda que suma 3 a cada número de una lista.
+
+sumar_3 = lambda lista: list(map(lambda x: x + 3, lista))
+
+
+#-------------------------------------------------------------
+
+# 16. Devuelve palabras más largas que n usando filter().
+
+def palabras_mas_largas_que(texto: str, n: int) -> list:
+    return list(filter(lambda w: len(w) > n, texto.split()))
+
+
+
+
+
+
+
+
 
 
 
@@ -216,6 +263,26 @@ if __name__ == "__main__":
     # Kata 11
     print("Kata 11:")
     pedir_edad()
+
+    # Kata 12
+    print("Kata 12:", longitudes_palabras("hola mundo desde python"))
+
+    # Kata 13
+    print("Kata 13:", mayus_minus_sin_repetir("aAbBcCa"))
+
+    # Kata 14
+    print("Kata 14:", palabras_empiezan_por(["casa", "coche", "perro", "cama"], "c"))
+
+    # Kata 15
+    print("Kata 15:", sumar_3([1, 2, 3]))
+
+    # Kata 16
+    print("Kata 16:", palabras_mas_largas_que("esto es una frase de ejemplo", 3))
+
+
+
+
+
 
 
 

@@ -46,3 +46,25 @@ En esta kata aprendí a crear y lanzar mis propios errores para controlar situac
 
 ## Kata 11 – Validación de edad
 En esta kata aprendí a comprobar que un dato introducido por el usuario no solo sea un número, sino que también tenga sentido dentro de un rango lógico.
+
+
+## Kata 12 – Longitud de palabras
+En esta kata aprendí a usar map() junto con len() para obtener información de cada palabra de una frase sin usar bucles manuales.
+
+
+## Kata 13 – Mayúsculas y minúsculas sin repetir
+En esta kata aprendí a quitar letras repetidas con set() y a transformar cada letra en una pareja (mayúscula y minúscula) usando map().
+
+
+
+
+## Kata 14 – Palabras que empiezan por una letra
+En esta kata aprendí a quedarme solo con las palabras que cumplen una condición usando filter() y startswith().
+
+
+
+## Kata 15 – Sumar 3 con lambda
+En esta kata aprendí a usar una lambda para aplicar un cambio rápido a todos los números de una lista.
+
+## Kata 16 – Filtrar palabras por longitud
+En esta kata aprendí a filtrar palabras según su longitud usando filter() y len().
