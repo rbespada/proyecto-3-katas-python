@@ -72,3 +72,7 @@ En esta kata aprendí a filtrar palabras según su longitud usando filter() y le
 
 ## Katas 17 a 20 – Reduce y filter
 En estas katas aprendí a usar reduce() para construir un valor a partir de varios datos y a usar filter() para quedarme solo con los elementos que cumplen una condición concreta, como números impares o valores de tipo entero.
+
+
+## Katas 21 a 24 – Lambdas y reduce
+En estas katas aprendí a usar funciones lambda para operaciones sencillas y reduce() para obtener un único resultado a partir de una lista, como productos, concatenaciones o restas encadenadas.
