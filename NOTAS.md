@@ -68,3 +68,7 @@ En esta kata aprendí a usar una lambda para aplicar un cambio rápido a todos l
 
 ## Kata 16 – Filtrar palabras por longitud
 En esta kata aprendí a filtrar palabras según su longitud usando filter() y len().
+
+
+## Katas 17 a 20 – Reduce y filter
+En estas katas aprendí a usar reduce() para construir un valor a partir de varios datos y a usar filter() para quedarme solo con los elementos que cumplen una condición concreta, como números impares o valores de tipo entero.
