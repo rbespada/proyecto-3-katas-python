@@ -303,6 +303,77 @@ def son_anagramas(palabra1: str, palabra2: str) -> bool:
 
     return sorted(p1) == sorted(p2)
 
+#-----------------------------------------------------------
+
+# 31. Crea una función que solicite al usuario ingresar una lista de nombres y luego
+# un nombre para buscar en esa lista. Si no se encuentra, lanza una excepción.
+
+class NombreNoEncontradoError(Exception):
+    pass
+
+
+def buscar_nombre():
+    nombres = input("Introduce nombres separados por comas: ").split(",")
+    nombres = [n.strip() for n in nombres]
+
+    nombre_buscar = input("Introduce el nombre a buscar: ")
+
+    if nombre_buscar not in nombres:
+        raise NombreNoEncontradoError("El nombre no está en la lista")
+
+    print(f"El nombre {nombre_buscar} fue encontrado")
+
+
+#-----------------------------------------------------------
+
+# 32. Crea una función que tome un nombre completo y una lista de empleados y
+# devuelva el puesto del empleado si se encuentra.
+
+def buscar_empleado(nombre: str, empleados: list) -> str:
+    for empleado in empleados:
+        if empleado["nombre"] == nombre:
+            return empleado["puesto"]
+
+    return "La persona no trabaja aquí"
+
+
+#-----------------------------------------------------------
+
+# 33. Crea una función lambda que sume elementos correspondientes de dos listas dadas.
+
+sumar_listas = lambda lista1, lista2: list(map(lambda x: x[0] + x[1], zip(lista1, lista2)))
+
+
+#-----------------------------------------------------------
+
+# 34. Crea la clase Arbol con tronco y ramas y los métodos indicados.
+
+class Arbol:
+    def __init__(self):
+        self.tronco = 1
+        self.ramas = []
+
+    def crecer_tronco(self):
+        self.tronco += 1
+
+    def nueva_rama(self):
+        self.ramas.append(1)
+
+    def crecer_ramas(self):
+        self.ramas = [rama + 1 for rama in self.ramas]
+
+    def quitar_rama(self, posicion: int):
+        if 0 <= posicion < len(self.ramas):
+            self.ramas.pop(posicion)
+
+    def info_arbol(self) -> dict:
+        return {
+            "longitud_tronco": self.tronco,
+            "numero_ramas": len(self.ramas),
+            "longitud_ramas": self.ramas
+        }
+
+
 
 
 
@@ -441,6 +512,35 @@ if __name__ == "__main__":
 
     # Kata 30
     print("Kata 30:", son_anagramas("Roma", "Amor"))
+
+        # Kata 31
+    print("Kata 31:")
+    try:
+        buscar_nombre()
+    except NombreNoEncontradoError as e:
+        print(f"Error: {e}")
+
+    # Kata 32
+    empleados = [
+        {"nombre": "Ana López", "puesto": "Desarrolladora"},
+        {"nombre": "Luis Pérez", "puesto": "Administrador"},
+        {"nombre": "Marta Gómez", "puesto": "Diseñadora"}
+    ]
+    print("Kata 32:", buscar_empleado("Ana López", empleados))
+
+    # Kata 33
+    print("Kata 33:", sumar_listas([1, 2, 3], [4, 5, 6]))
+
+    # Kata 34
+    print("Kata 34:")
+    arbol = Arbol()
+    arbol.crecer_tronco()
+    arbol.nueva_rama()
+    arbol.crecer_ramas()
+    arbol.nueva_rama()
+    arbol.nueva_rama()
+    arbol.quitar_rama(1)
+    print(arbol.info_arbol())
 
 
 

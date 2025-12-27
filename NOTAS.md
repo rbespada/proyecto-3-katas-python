@@ -80,3 +80,9 @@ En estas katas aprendí a usar funciones lambda para operaciones sencillas y red
 
 ## Katas 25 a 30 – Texto y listas
 En estas katas aprendí a trabajar con cadenas y listas de forma práctica, como contar caracteres, sacar promedios, detectar duplicados, ocultar parte de un dato y comprobar si dos palabras tienen las mismas letras.
+
+
+
+
+## Katas 31 a 34 – Excepciones, listas y clases
+En estas katas aprendí a lanzar errores cuando algo no se cumple, a trabajar con listas comparando datos y a crear una clase sencilla con atributos y métodos para representar un objeto real.
