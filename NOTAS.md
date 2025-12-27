@@ -76,3 +76,7 @@ En estas katas aprendí a usar reduce() para construir un valor a partir de vari
 
 ## Katas 21 a 24 – Lambdas y reduce
 En estas katas aprendí a usar funciones lambda para operaciones sencillas y reduce() para obtener un único resultado a partir de una lista, como productos, concatenaciones o restas encadenadas.
+
+
+## Katas 25 a 30 – Texto y listas
+En estas katas aprendí a trabajar con cadenas y listas de forma práctica, como contar caracteres, sacar promedios, detectar duplicados, ocultar parte de un dato y comprobar si dos palabras tienen las mismas letras.

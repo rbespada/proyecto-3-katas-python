@@ -240,6 +240,70 @@ def diferencia_total(numeros: list) -> int:
     return reduce(lambda acc, x: acc - x, numeros)
 
 
+#-----------------------------------------------------------
+
+# 25. Crea una función que cuente el número de caracteres en una cadena de texto dada.
+
+def contar_caracteres(texto: str) -> int:
+    return len(texto)
+
+
+#-----------------------------------------------------------
+
+# 26. Crea una función lambda que calcule el resto de la división entre dos números dados.
+
+resto_division = lambda a, b: a % b
+
+
+#-----------------------------------------------------------
+
+# 27. Crea una función que calcule el promedio de una lista de números.
+
+def promedio_lista(numeros: list) -> float:
+    return sum(numeros) / len(numeros)
+
+
+#-----------------------------------------------------------
+
+# 28. Crea una función que busque y devuelva el primer elemento duplicado en una lista dada.
+
+def primer_duplicado(lista: list):
+    vistos = set()
+
+    for elemento in lista:
+        if elemento in vistos:
+            return elemento
+        vistos.add(elemento)
+
+    return None
+
+
+#-----------------------------------------------------------
+
+# 29. Crea una función que convierta una variable en una cadena de texto y enmascare
+# todos los caracteres con el carácter '#' excepto los últimos cuatro.
+
+def enmascarar_ultimos_4(valor) -> str:
+    texto = str(valor)
+
+    if len(texto) <= 4:
+        return texto
+
+    return "#" * (len(texto) - 4) + texto[-4:]
+
+
+#-----------------------------------------------------------
+
+# 30. Crea una función que determine si dos palabras son anagramas,
+# es decir, si están formadas por las mismas letras pero en diferente orden.
+
+def son_anagramas(palabra1: str, palabra2: str) -> bool:
+    p1 = palabra1.replace(" ", "").lower()
+    p2 = palabra2.replace(" ", "").lower()
+
+    return sorted(p1) == sorted(p2)
+
+
 
 
 
@@ -359,6 +423,25 @@ if __name__ == "__main__":
 
     # Kata 24
     print("Kata 24:", diferencia_total([20, 5, 3]))
+
+        # Kata 25
+    print("Kata 25:", contar_caracteres("Hola Python"))
+
+    # Kata 26
+    print("Kata 26:", resto_division(10, 3))
+
+    # Kata 27
+    print("Kata 27:", promedio_lista([5, 7, 9]))
+
+    # Kata 28
+    print("Kata 28:", primer_duplicado([1, 2, 3, 2, 5]))
+
+    # Kata 29
+    print("Kata 29:", enmascarar_ultimos_4("123456789"))
+
+    # Kata 30
+    print("Kata 30:", son_anagramas("Roma", "Amor"))
+
 
 
 
