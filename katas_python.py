@@ -507,6 +507,59 @@ def calificacion_texto():
         print("excelente")
 
 
+#-----------------------------------------------------------
+
+# 39. Escribe una función que tome dos parámetros:
+# figura (puede ser "rectangulo", "circulo" o "triangulo")
+# y datos (una tupla con los datos necesarios para calcular el área).
+
+def calcular_area(figura: str, datos: tuple) -> float:
+    if figura == "rectangulo":
+        base, altura = datos
+        return base * altura
+
+    elif figura == "circulo":
+        radio, = datos
+        return 3.1416 * radio * radio
+
+    elif figura == "triangulo":
+        base, altura = datos
+        return (base * altura) / 2
+
+    else:
+        raise ValueError("Figura no válida")
+
+
+#-----------------------------------------------------------
+
+# 40. Programa que determine el precio final de una compra con descuento.
+# a) Solicita el precio original
+# b) Pregunta si tiene cupón
+# c) Si lo tiene, solicita el valor del cupón
+# d) Aplica el descuento si es válido
+# e) Muestra el precio final
+
+def precio_final_compra():
+    try:
+        precio = float(input("Introduce el precio del artículo: "))
+        if precio <= 0:
+            raise ValueError
+    except ValueError:
+        print("Precio no válido.")
+        return
+
+    tiene_cupon = input("¿Tienes cupón de descuento? (si/no): ").lower()
+
+    if tiene_cupon == "si":
+        try:
+            descuento = float(input("Introduce el valor del descuento: "))
+            if descuento <= 0:
+                raise ValueError
+            precio -= descuento
+        except ValueError:
+            print("Descuento no válido. No se aplica ningún descuento.")
+
+    print(f"Precio final de la compra: {precio}")
 
 
 
@@ -700,9 +753,20 @@ if __name__ == "__main__":
     print("Kata 37:")
     momento_del_dia()
 
+
     # Kata 38
     print("Kata 38:")
     calificacion_texto()
+
+        # Kata 39
+    print("Kata 39:", calcular_area("rectangulo", (5, 3)))
+    print("Kata 39:", calcular_area("circulo", (4,)))
+    print("Kata 39:", calcular_area("triangulo", (6, 2)))
+
+    # Kata 40
+    print("Kata 40:")
+    precio_final_compra()
+
 
 
 

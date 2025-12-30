@@ -90,3 +90,8 @@ En estas katas aprendí a lanzar errores cuando algo no se cumple, a trabajar co
 
 ## Katas 35 a 38 – Clases, texto y validaciones
 En estas katas aprendí a crear una clase con métodos para manejar dinero con control de errores, a procesar texto con distintas opciones y a validar datos que introduce el usuario para devolver un resultado según rangos.
+
+
+
+## Katas 39 y 40 – Condicionales y casos reales
+En estas katas aprendí a usar condicionales para resolver problemas reales, como calcular áreas según el tipo de figura o aplicar descuentos validando correctamente los datos introducidos por el usuario.
