@@ -373,6 +373,138 @@ class Arbol:
             "longitud_ramas": self.ramas
         }
 
+#-----------------------------------------------------------
+
+# 35. Crea la clase UsuarioBanco
+# Representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta corriente.
+# Métodos: retirar_dinero, transferir_dinero, agregar_dinero.
+
+class OperacionBancoError(Exception):
+    pass
+
+
+class UsuarioBanco:
+    def __init__(self, nombre: str, saldo: float, cuenta_corriente: bool):
+        self.nombre = nombre
+        self.saldo = saldo
+        self.cuenta_corriente = cuenta_corriente
+
+    def retirar_dinero(self, cantidad: float):
+        if cantidad <= 0:
+            raise OperacionBancoError("La cantidad a retirar debe ser mayor que 0")
+
+        if cantidad > self.saldo:
+            raise OperacionBancoError("Saldo insuficiente para retirar esa cantidad")
+
+        self.saldo -= cantidad
+
+    def transferir_dinero(self, otro_usuario, cantidad: float):
+        if not self.cuenta_corriente or not otro_usuario.cuenta_corriente:
+            raise OperacionBancoError("Ambos usuarios deben tener cuenta corriente para transferir")
+
+        if cantidad <= 0:
+            raise OperacionBancoError("La cantidad a transferir debe ser mayor que 0")
+
+        if cantidad > self.saldo:
+            raise OperacionBancoError("Saldo insuficiente para transferir esa cantidad")
+
+        self.saldo -= cantidad
+        otro_usuario.saldo += cantidad
+
+    def agregar_dinero(self, cantidad: float):
+        if cantidad <= 0:
+            raise OperacionBancoError("La cantidad a agregar debe ser mayor que 0")
+
+        self.saldo += cantidad
+
+
+#-----------------------------------------------------------
+
+# 36. Crea una función llamada procesar_texto
+# Procesa un texto según la opción especificada: contar_palabras, reemplazar_palabras o eliminar_palabra.
+
+def contar_palabras(texto: str) -> dict:
+    palabras = texto.split()
+    conteo = {}
+    for p in palabras:
+        conteo[p] = conteo.get(p, 0) + 1
+    return conteo
+
+
+def reemplazar_palabras(texto: str, palabra_original: str, palabra_nueva: str) -> str:
+    return texto.replace(palabra_original, palabra_nueva)
+
+
+def eliminar_palabra(texto: str, palabra: str) -> str:
+    palabras = texto.split()
+    filtradas = [p for p in palabras if p != palabra]
+    return " ".join(filtradas)
+
+
+def procesar_texto(texto: str, opcion: str, *args):
+    if opcion == "contar":
+        return contar_palabras(texto)
+
+    if opcion == "reemplazar":
+        if len(args) != 2:
+            raise ValueError("Para 'reemplazar' se necesitan 2 argumentos: palabra_original y palabra_nueva")
+        return reemplazar_palabras(texto, args[0], args[1])
+
+    if opcion == "eliminar":
+        if len(args) != 1:
+            raise ValueError("Para 'eliminar' se necesita 1 argumento: palabra")
+        return eliminar_palabra(texto, args[0])
+
+    raise ValueError("Opción no válida. Usa 'contar', 'reemplazar' o 'eliminar'.")
+
+
+#-----------------------------------------------------------
+
+# 37. Genera un programa que nos indique si es de noche, de día o de tarde según la hora proporcionada por el usuario.
+
+def momento_del_dia():
+    try:
+        hora = int(input("Introduce la hora (0-23): "))
+        if hora < 0 or hora > 23:
+            raise ValueError
+    except ValueError:
+        print("Error: introduce una hora válida entre 0 y 23.")
+        return
+
+    if 6 <= hora < 12:
+        print("Es de día")
+    elif 12 <= hora < 20:
+        print("Es de tarde")
+    else:
+        print("Es de noche")
+
+
+#-----------------------------------------------------------
+
+# 38. Escribe un programa que determine qué calificación en texto tiene un alumno según su calificación numérica.
+# Reglas:
+# 0 - 69: insuficiente
+# 70 - 79: bien
+# 80 - 89: muy bien
+# 90 - 100: excelente
+
+def calificacion_texto():
+    try:
+        nota = int(input("Introduce la calificación (0-100): "))
+        if nota < 0 or nota > 100:
+            raise ValueError
+    except ValueError:
+        print("Error: introduce una calificación válida entre 0 y 100.")
+        return
+
+    if 0 <= nota <= 69:
+        print("insuficiente")
+    elif 70 <= nota <= 79:
+        print("bien")
+    elif 80 <= nota <= 89:
+        print("muy bien")
+    else:
+        print("excelente")
 
 
 
@@ -542,6 +674,35 @@ if __name__ == "__main__":
     arbol.quitar_rama(1)
     print(arbol.info_arbol())
 
+    # Kata 35
+    print("Kata 35:")
+    try:
+        alicia = UsuarioBanco("Alicia", 100, True)
+        bob = UsuarioBanco("Bob", 50, True)
+
+        bob.agregar_dinero(20)
+        bob.transferir_dinero(alicia, 80)
+        alicia.retirar_dinero(50)
+
+        print("Alicia saldo:", alicia.saldo)
+        print("Bob saldo:", bob.saldo)
+    except OperacionBancoError as e:
+        print(f"Error: {e}")
+
+    # Kata 36
+    print("Kata 36:")
+    texto_prueba = "hola mundo hola python"
+    print(procesar_texto(texto_prueba, "contar"))
+    print(procesar_texto(texto_prueba, "reemplazar", "hola", "hey"))
+    print(procesar_texto(texto_prueba, "eliminar", "hola"))
+
+    # Kata 37
+    print("Kata 37:")
+    momento_del_dia()
+
+    # Kata 38
+    print("Kata 38:")
+    calificacion_texto()
 
 
 

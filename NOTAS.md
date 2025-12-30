@@ -86,3 +86,7 @@ En estas katas aprendí a trabajar con cadenas y listas de forma práctica, como
 
 ## Katas 31 a 34 – Excepciones, listas y clases
 En estas katas aprendí a lanzar errores cuando algo no se cumple, a trabajar con listas comparando datos y a crear una clase sencilla con atributos y métodos para representar un objeto real.
+
+
+## Katas 35 a 38 – Clases, texto y validaciones
+En estas katas aprendí a crear una clase con métodos para manejar dinero con control de errores, a procesar texto con distintas opciones y a validar datos que introduce el usuario para devolver un resultado según rangos.
